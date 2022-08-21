@@ -1,0 +1,143 @@
+/*
+    Some colors
+
+    Olive: #8aaf07
+    Pink: #e50aa7
+    Emerald: #11bf85
+    Sky: #008dff
+    Blue: blue;
+*/
+
+/*
+    Variables
+*/
+
+:root {
+  --line-thickness: 1.1px;
+  --main-color: blue;
+  --opposite-color: white;
+  --radius: 4px;
+  /* Theme 1 */
+  --main-font: Courier New, monospace;
+  --main-zoom: 140%;
+  /* Theme 2 */
+  /* --main-font: -apple-system, system-ui, BlinkMacSystemFont; */
+  /* --main-zoom: 130%; */
+}
+
+/*
+    Normalize
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+    Fonts
+*/
+
+* {
+  font-family: var(--main-font);
+}
+
+/*
+    Layout
+*/
+
+body {
+  margin: 0 10%;
+  margin-top: 50px;
+  zoom: var(--main-zoom);
+}
+
+/*
+    Components: Anchors
+
+    tt a – <a> as text
+    em a - <a> dashed
+*/
+
+a {
+  color: var(--main-color);
+}
+a:hover {
+  text-decoration: none;
+}
+
+tt a {
+  color: black;
+}
+
+em a {
+  font-style: normal; /* rewrite default behaviour */
+  border-bottom: var(--line-thickness) dashed var(--main-color);
+  text-decoration: none;
+}
+
+em a:hover {
+  border-bottom: 0px dotted var(--main-color);
+}
+
+/*
+    Components: form
+*/
+
+select,
+input,
+button {
+  border-radius: var(--radius);
+  border: var(--line-thickness) solid black;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button,
+input[type="submit"] {
+  background-color: var(--main-color);
+  color: var(--opposite-color);
+  border: var(--line-thickness) solid var(--main-color);
+}
+
+button,
+input {
+  padding: 2px 4px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/*
+    Component: navigation
+*/
+
+nav ul {
+  user-select: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-bottom: 10px; /* margin for vertical stacking */
+}
+
+nav ul li a {
+  color: var(--main-color);
+  text-decoration: none;
+  border: var(--line-thickness) solid var(--main-color);
+  padding: 0 3px;
+  border-radius: var(--radius);
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: var(--opposite-color);
+  background-color: var(--main-color);
+  border: var(--line-thickness) solid transparent;
+}
