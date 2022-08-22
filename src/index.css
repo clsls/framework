@@ -13,16 +13,30 @@
 */
 
 :root {
-  --line-thickness: 1.1px;
-  --main-color: blue;
-  --opposite-color: white;
-  --radius: 4px;
-  /* Theme 1 */
-  --main-font: Courier New, monospace;
-  --main-zoom: 140%;
-  /* Theme 2 */
-  /* --main-font: -apple-system, system-ui, BlinkMacSystemFont; */
-  /* --main-zoom: 130%; */
+  /* Light Theme */
+  --clsls-color-background: white;
+  --clsls-color-text: black;
+  --clsls-color-link-hover: blue;
+  --clsls-color-button: white;
+  --clsls-color-main: blue;
+  --clsls-color-opposite: white;
+
+  --clsls-line-thickness: 1.1px;
+  --clsls-radius: 0px;
+  --clsls-font-main: "Noto Sans Mono", monospace;
+  --clsls-zoom-main: 120%;
+
+  /* Dark Theme */
+  /* --clsls-line-thickness: 1.1px;
+  --clsls-color-background: black;
+  --clsls-color-text: white;
+  --clsls-color-link-hover: #00c200;
+  --clsls-color-button: black;
+  --clsls-color-main: #00ff00;
+  --clsls-color-opposite: white;
+  --clsls-radius: 0px;
+  --clsls-font-main: "Noto Sans Mono";
+  --clsls-zoom-main: 120%; */
 }
 
 /*
@@ -34,12 +48,25 @@
   padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+br {
+  user-select: none;
+}
+
 /*
     Fonts
 */
 
 * {
-  font-family: var(--main-font);
+  font-family: var(--clsls-font-main);
 }
 
 /*
@@ -47,53 +74,69 @@
 */
 
 body {
+  color: var(--clsls-color-text);
+  font-weight: 200;
   margin: 0 10%;
-  margin-top: 50px;
-  zoom: var(--main-zoom);
+  zoom: var(--clsls-zoom-main);
+  background-color: var(--clsls-color-background);
 }
 
 /*
-    Components: Anchors
+    Anchors
 
     tt a – <a> as text
     em a - <a> dashed
+    ol button – outlined button
 */
 
 a {
-  color: var(--main-color);
-}
-a:hover {
+  color: var(--clsls-color-main);
   text-decoration: none;
+  border-width: 0 0 var(--clsls-line-thickness) 0;
+  border-style: solid;
+  border-color: var(--clsls-color-main);
+  padding-bottom: 0;
+}
+
+a:hover {
+  border: none;
+  color: var(--clsls-color-link-hover) !important;
 }
 
 tt a {
-  color: black;
+  color: var(--clsls-color-text) !important; /* rewrite regular link color */
+  border-color: var(--main-text);
 }
 
 em a {
   font-style: normal; /* rewrite default behaviour */
-  border-bottom: var(--line-thickness) dashed var(--main-color);
-  text-decoration: none;
+  border-style: dashed;
+  border-color: var(--clsls-color-main);
 }
 
 em a:hover {
-  border-bottom: 0px dotted var(--main-color);
+  border-bottom: 0px dotted var(--clsls-color-main);
 }
 
 /*
-    Components: form
+    Form
 */
+input:focus {
+  outline: none;
+  border-color: var(--clsls-color-main);
+}
 
 select,
 input,
 button {
-  border-radius: var(--radius);
-  border: var(--line-thickness) solid black;
+  border-radius: var(--clsls-radius);
+  border: var(--clsls-line-thickness) solid var(--clsls-color-text);
 }
 
 button,
 input[type="submit"] {
   cursor: pointer;
+  color: var(--clsls-color-button) !important;
 }
 
 button:hover {
@@ -102,16 +145,37 @@ button:hover {
 
 button,
 input[type="submit"] {
-  background-color: var(--main-color);
-  color: var(--opposite-color);
-  border: var(--line-thickness) solid var(--main-color);
+  background-color: var(--clsls-color-main);
+  color: var(--clsls-color-opposite);
+  border: var(--clsls-line-thickness) solid var(--clsls-color-main);
 }
 
 button,
 input {
-  padding: 2px 4px;
-  font-size: 14px;
+  padding: 1px 3px;
+  font-size: 100%;
   margin-top: 10px;
+}
+
+a ol {
+  display: inline-block;
+}
+
+ol input[type="submit"],
+ol button {
+  text-decoration: none;
+  border: var(--clsls-line-thickness) solid var(--clsls-color-main);
+  border-radius: var(--clsls-radius);
+  background-color: var(--clsls-color-opposite);
+  color: var(--clsls-color-main) !important;
+}
+
+ol input[type="submit"]:hover,
+ol button:hover {
+  text-decoration: none;
+  color: var(--clsls-color-opposite) !important;
+  background-color: var(--clsls-color-main);
+  border: var(--clsls-line-thickness) solid transparent;
 }
 
 /*
@@ -128,16 +192,13 @@ nav ul li {
 }
 
 nav ul li a {
-  color: var(--main-color);
-  text-decoration: none;
-  border: var(--line-thickness) solid var(--main-color);
-  padding: 0 3px;
-  border-radius: var(--radius);
+  color: var(--clsls-color-main);
 }
 
-nav ul li a:hover {
-  text-decoration: none;
-  color: var(--opposite-color);
-  background-color: var(--main-color);
-  border: var(--line-thickness) solid transparent;
+/*
+    Component: rounded image
+*/
+
+small img {
+  border-radius: 100%;
 }
