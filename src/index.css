@@ -1,12 +1,4 @@
-/*
-    Some colors
-
-    Olive: #8aaf07
-    Pink: #e50aa7
-    Emerald: #11bf85
-    Sky: #008dff
-    Blue: blue;
-*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;600;700;900&display=swap");
 
 /*
     Variables
@@ -16,9 +8,9 @@
   /* Light Theme */
   --clsls-color-background: white;
   --clsls-color-text: black;
-  --clsls-color-link-hover: blue;
+  --clsls-color-link-hover: #ff4040;
   --clsls-color-button: white;
-  --clsls-color-main: blue;
+  --clsls-color-main: #ff4040;
   --clsls-color-opposite: white;
 
   --clsls-line-thickness: 1.1px;
@@ -46,6 +38,7 @@
 * {
   margin: 0;
   padding: 0;
+  margin-bottom: 4px;
 }
 
 h1,
@@ -61,6 +54,10 @@ br {
   user-select: none;
 }
 
+u {
+  text-decoration: none;
+}
+
 /*
     Fonts
 */
@@ -69,25 +66,77 @@ br {
   font-family: var(--clsls-font-main);
 }
 
+body {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/*
+    Heading
+*/
+
+/* 
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.85rem;
+}
+h3 {
+  font-size: 1.55rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.875rem;
+} 
+*/
+
+/*
+  Text styles
+*/
+
+i {
+}
+
+b {
+  font-weight: 700;
+}
+
+b b {
+  font-weight: 900 !important;
+}
+
 /*
     Layout
 */
 
 body {
   color: var(--clsls-color-text);
-  font-weight: 200;
+  font-weight: 300;
   margin: 0 10%;
   zoom: var(--clsls-zoom-main);
   background-color: var(--clsls-color-background);
 }
 
 /*
-    Anchors
-
-    tt a – <a> as text
-    em a - <a> dashed
-    ol button – outlined button
+    Links
 */
+
+u a {
+  text-decoration: none !important;
+  border-bottom: none;
+}
+
+u a:hover {
+  border-width: 0 0 var(--clsls-line-thickness) 0;
+  border-style: solid;
+  border-color: var(--clsls-color-main);
+}
 
 a {
   color: var(--clsls-color-main);
@@ -118,19 +167,22 @@ em a:hover {
   border-bottom: 0px dotted var(--clsls-color-main);
 }
 
+a ol {
+  display: inline-block;
+}
+
 /*
     Form
 */
-input:focus {
-  outline: none;
-  border-color: var(--clsls-color-main);
-}
 
 select,
 input,
-button {
+button,
+textarea {
+  font-size: 1rem;
   border-radius: var(--clsls-radius);
   border: var(--clsls-line-thickness) solid var(--clsls-color-text);
+  padding: 1px 6px 3px 6px;
 }
 
 button,
@@ -150,15 +202,11 @@ input[type="submit"] {
   border: var(--clsls-line-thickness) solid var(--clsls-color-main);
 }
 
-button,
-input {
-  padding: 1px 3px;
-  font-size: 100%;
-  margin-top: 10px;
-}
-
-a ol {
-  display: inline-block;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--clsls-color-main);
 }
 
 ol input[type="submit"],
@@ -179,8 +227,36 @@ ol button:hover {
 }
 
 /*
+    Component: list 
+*/
+
+ul li {
+  margin-left: 18px; /* fix offset */
+}
+
+ol li {
+  margin-left: 29px; /* fix offset */
+}
+
+u ul li {
+  margin-left: 0px;
+}
+
+u ul li::marker {
+  content: "";
+}
+
+ul li::marker {
+  content: "• ";
+}
+
+/*
     Component: navigation
 */
+
+nav ul li {
+  margin-left: 0; /* cancel higher rules */
+}
 
 nav ul {
   user-select: none;
@@ -201,4 +277,14 @@ nav ul li a {
 
 small img {
   border-radius: 100%;
+}
+
+/*
+    hr, br
+*/
+
+hr {
+  height: 0;
+  border: 0px solid transparent;
+  border-bottom: 1px solid lightgrey;
 }
