@@ -209,6 +209,11 @@ textarea:focus {
     border-color: var(--clsls-color-main);
 }
 
+select option {
+    padding: 0;
+    margin: 0;
+}
+
 ol input[type="submit"],
 ol button {
     text-decoration: none;
