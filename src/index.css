@@ -191,6 +191,14 @@ input[type="submit"] {
     color: var(--clsls-color-button) !important;
 }
 
+input[type="file"]::-webkit-file-upload-button {
+    font-family: var(--clsls-font-main);
+    margin-right: 12px;
+}
+input[type="file"] {
+    padding: 7px;
+}
+
 button:hover {
     opacity: 0.8;
 }
@@ -241,6 +249,10 @@ ul li {
 
 ol li {
     margin-left: 29px; /* fix offset */
+}
+
+u ul {
+    list-style: none;
 }
 
 u ul li {
