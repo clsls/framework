@@ -305,3 +305,12 @@ hr {
     border: 0px solid transparent;
     border-bottom: 1px solid lightgrey;
 }
+
+/*
+    table
+*/
+
+tr {
+    padding-right: 8px;
+    vertical-align: baseline;
+}
