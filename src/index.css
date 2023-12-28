@@ -1,34 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto Sans Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto Mono:wght@300;600;700&display=swap");
 
 /*
     Variables
 */
 
 :root {
-    /* Light Theme */
-    --clsls-color-background: white;
-    --clsls-color-text: black;
-    --clsls-color-link-hover: #ff4040;
-    --clsls-color-button: white;
-    --clsls-color-main: #ff4040;
-    --clsls-color-opposite: white;
-
-    --clsls-line-thickness: 1.1px;
-    --clsls-radius: 6px;
-    --clsls-font-main: "Noto Sans Mono", monospace;
+    --clsls-line-thickness: 1.5px;
+    --clsls-radius: 0.4rem;
+    --clsls-font-heading: 'Roboto Mono', monospace;
+    --clsls-font-text: 'Noto Sans Mono', monospace;
     --clsls-zoom-main: 100%;
+    --clsls-color-link-hover: var(--clsls-color-main);
+    --clsls-color-button: white;
+    --clsls-color-opposite: white;
+}
 
-    /* Dark Theme */
-    /* --clsls-line-thickness: 1.1px;
-  --clsls-color-background: black;
-  --clsls-color-text: white;
-  --clsls-color-link-hover: #00c200;
-  --clsls-color-button: black;
-  --clsls-color-main: #00ff00;
-  --clsls-color-opposite: white;
-  --clsls-radius: 0px;
-  --clsls-font-main: "Noto Sans Mono";
-  --clsls-zoom-main: 120%; */
+/* Light Theme */
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --clsls-color-main: rgb(0, 122, 255);
+        --clsls-color-background: white;
+        --clsls-color-text: #222;
+        --clsls-color-border: #d3d3d3;
+        --clsls-color-code: rgba(0, 0, 0, 0.1);
+        --clsls-icon-chevron: url("data:image/svg+xml;utf8,<svg fill='#222' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
+}
+
+/* Dark Theme */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clsls-color-main: rgb(10, 132, 255);
+        --clsls-color-background: #222;
+        --clsls-color-text: white;
+        --clsls-color-border: #666;
+        --clsls-color-code: rgba(255, 255, 255, 0.1);
+        --clsls-icon-chevron: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    }
 }
 
 /*
@@ -38,8 +49,12 @@
 * {
     margin: 0;
     padding: 0;
-    margin-bottom: 4px;
+    margin-bottom: 0.27rem;
 }
+
+/*
+    Headlines
+*/
 
 h1,
 h2,
@@ -48,14 +63,8 @@ h4,
 h5,
 h6 {
     font-weight: normal;
-}
-
-br {
-    user-select: none;
-}
-
-u {
-    text-decoration: none;
+    font-family: var(--clsls-font-heading);
+    transform: scaleY(0.97);
 }
 
 /*
@@ -63,7 +72,7 @@ u {
 */
 
 * {
-    font-family: var(--clsls-font-main);
+    font-family: var(--clsls-font-text);
 }
 
 body {
@@ -75,38 +84,18 @@ body {
     Heading
 */
 
-/* 
-h1 {
-  font-size: 2.25rem;
-}
-h2 {
-  font-size: 1.85rem;
-}
-h3 {
-  font-size: 1.55rem;
-}
-h4 {
-  font-size: 1.25rem;
-}
-h5 {
-  font-size: 1rem;
-}
-h6 {
-  font-size: 0.875rem;
-} 
-*/
-
 /*
   Text styles
 */
 
-i {}
-
 b {
-    font-weight: 700;
+    font-weight: 600;
+    font-family: var(--clsls-font-heading);
 }
 
 b b {
+    font-weight: 700 !important;
+    font-weight: 800 !important;
     font-weight: 900 !important;
 }
 
@@ -126,16 +115,7 @@ body {
     Links
 */
 
-u a {
-    text-decoration: none !important;
-    border-bottom: none;
-}
-
-u a:hover {
-    border-width: 0 0 var(--clsls-line-thickness) 0;
-    border-style: solid;
-    border-color: var(--clsls-color-main);
-}
+/* a = regular anchor */
 
 a {
     color: var(--clsls-color-main);
@@ -151,25 +131,38 @@ a:hover {
     color: var(--clsls-color-link-hover) !important;
 }
 
+/* u + a = anchor as undecorated */
+
+u a {
+    text-decoration: none !important;
+    border-bottom: none;
+}
+
+u a:hover {
+    border-width: 0 0 var(--clsls-line-thickness) 0;
+    border-style: solid;
+    border-color: var(--clsls-color-main);
+}
+
+/* tt + a = anchor as text */
+
 tt a {
     color: var(--clsls-color-text) !important;
     /* rewrite regular link color */
     border-color: var(--main-text);
 }
 
-em a {
+/* dd + a  = anchor as dashed */
+
+dd a {
     font-style: normal;
     /* rewrite default behaviour */
     border-style: dashed;
     border-color: var(--clsls-color-main);
 }
 
-em a:hover {
+dd a:hover {
     border-bottom: 0px dotted var(--clsls-color-main);
-}
-
-a ol {
-    display: inline-block;
 }
 
 /*
@@ -183,7 +176,9 @@ textarea {
     font-size: 1rem;
     border-radius: var(--clsls-radius);
     border: var(--clsls-line-thickness) solid var(--clsls-color-text);
-    padding: 1px 6px 3px 6px;
+    padding: 0.08rem 0.42rem 0.21rem;
+    background-color: var(--clsls-color-background);
+    color: var(--clsls-color-text);
 }
 
 button,
@@ -193,7 +188,7 @@ input[type="submit"] {
 }
 
 input[type="file"]::-webkit-file-upload-button {
-    font-family: var(--clsls-font-main);
+    font-family: var(--clsls-font-text);
     margin-right: 12px;
 }
 
@@ -212,11 +207,27 @@ input[type="submit"] {
     border: var(--clsls-line-thickness) solid var(--clsls-color-main);
 }
 
+button:active {
+    box-shadow: inset 0 0 3px 0.1rem rgba(0,0,0,0.33);
+}
+
 input:focus,
 select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--clsls-color-main);
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: var(--clsls-icon-chevron);
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 0.5px;
+    /* margin-right: 2rem; */
+    padding-right: 2rem;
 }
 
 select option {
@@ -309,7 +320,11 @@ small img {
 hr {
     height: 0;
     border: 0px solid transparent;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid var(--clsls-color-border);
+}
+
+br {
+    user-select: none;
 }
 
 /*
@@ -326,8 +341,32 @@ td {
 */
 
 pre:has(code) {
-    /* Styles for elements with class .parent-class that contain an element with class .child-element */
-    background-color:rgb(222, 222, 222);
+    background-color: var(--clsls-color-code);
     padding: 15px 20px;
     border-radius: var(--clsls-radius);
+}
+
+/*
+    muted text
+*/
+
+p > small {
+    opacity: 0.6;
+    font-size: 100%;
+}
+
+/*
+    UTILS
+*/
+
+u {
+    text-decoration: none;
+}
+
+/*
+    FIXIES
+*/
+
+a ol {
+    display: inline-block;
 }
