@@ -350,10 +350,11 @@ pre:has(code) {
     muted text
 */
 
-p > small {
+p > small,
+span > small {
     opacity: 0.6;
     font-size: 100%;
-}
+} 
 
 /*
     UTILS
