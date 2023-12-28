@@ -14,7 +14,7 @@
     --clsls-color-opposite: white;
 
     --clsls-line-thickness: 1.1px;
-    --clsls-radius: 0px;
+    --clsls-radius: 6px;
     --clsls-font-main: "Noto Sans Mono", monospace;
     --clsls-zoom-main: 100%;
 
@@ -100,8 +100,7 @@ h6 {
   Text styles
 */
 
-i {
-}
+i {}
 
 b {
     font-weight: 700;
@@ -153,12 +152,14 @@ a:hover {
 }
 
 tt a {
-    color: var(--clsls-color-text) !important; /* rewrite regular link color */
+    color: var(--clsls-color-text) !important;
+    /* rewrite regular link color */
     border-color: var(--main-text);
 }
 
 em a {
-    font-style: normal; /* rewrite default behaviour */
+    font-style: normal;
+    /* rewrite default behaviour */
     border-style: dashed;
     border-color: var(--clsls-color-main);
 }
@@ -195,6 +196,7 @@ input[type="file"]::-webkit-file-upload-button {
     font-family: var(--clsls-font-main);
     margin-right: 12px;
 }
+
 input[type="file"] {
     padding: 7px;
 }
@@ -244,11 +246,13 @@ ol button:hover {
 */
 
 ul li {
-    margin-left: 18px; /* fix offset */
+    margin-left: 18px;
+    /* fix offset */
 }
 
 ol li {
-    margin-left: 29px; /* fix offset */
+    margin-left: 29px;
+    /* fix offset */
 }
 
 u ul {
@@ -272,7 +276,8 @@ ul li::marker {
 */
 
 nav ul li {
-    margin-left: 0; /* cancel higher rules */
+    margin-left: 0;
+    /* cancel higher rules */
 }
 
 nav ul {
@@ -281,7 +286,8 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-bottom: 10px; /* margin for vertical stacking */
+    margin-bottom: 10px;
+    /* margin for vertical stacking */
 }
 
 nav ul li a {
@@ -313,4 +319,15 @@ hr {
 td {
     padding-right: 8px;
     vertical-align: baseline;
+}
+
+/*
+    code
+*/
+
+pre:has(code) {
+    /* Styles for elements with class .parent-class that contain an element with class .child-element */
+    background-color:rgb(222, 222, 222);
+    padding: 15px 20px;
+    border-radius: var(--clsls-radius);
 }
