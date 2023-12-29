@@ -1,4 +1,4 @@
-# `🫙` clsls
+# 🫙 clsls
 
 > classless framework for fast prototyping
 
@@ -11,7 +11,7 @@
 
 ## Demos
 
-- [Main](https://clsls.github.io/framework/) with docs by innspecting source code `🗿`
+- [Main](https://clsls.github.io/framework/) with docs by inspecting source code `🗿`
 
 ## Install
 
