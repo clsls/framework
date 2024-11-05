@@ -53,18 +53,19 @@ To create your own theme just rewrite following variables in your CSS file:
 
 - [x] code block
 - [x] seprate font for headline
+- [x] inline code
 - [ ] card component
 - [ ] dotted link
 - [ ] sizes for buttons
 - [ ] more demos
 - [ ] checkboxes
-- [ ] npm install support
+- [ ] `npm install` support
 - [ ] better docs page with code to copy
 
 ### v3
 
 - [ ] match variable name with CSS properties and HTML tags
-    - [ ] `--clsls-color-link-hover` →
+    - [ ] `--clsls-color-link-hover` → `--clsls-color-a-hover`
     - [ ] `--clsls-radius` → `--clsls-border-radius`
     - [ ] `--clsls-line-thickness` → `--clsls-border-width`
     - [ ] `--clsls-color-code` → `--clsls-color-code-background`

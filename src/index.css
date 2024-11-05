@@ -356,6 +356,20 @@ pre:has(code) {
   border-radius: var(--clsls-radius);
 }
 
+pre code {
+  background-color: transparent;
+}
+
+/*
+    code
+*/
+
+code {
+  background-color: var(--clsls-color-code);
+  padding: 5px 10px 8px 10px;
+  border-radius: var(--clsls-radius);
+}
+
 /*
     muted text
 */
